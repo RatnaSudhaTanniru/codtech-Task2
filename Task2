@@ -1,0 +1,67 @@
+/*BMI TRACKING APP*/
+
+def calculate_bmi(weight, height, system='metric'):
+    """
+    Calculate BMI based on weight and height.
+    
+    Parameters:
+    - weight: float, weight in kilograms (if metric) or pounds (if imperial)
+    - height: float, height in meters (if metric) or inches (if imperial)
+    - system: str, optional, 'metric' or 'imperial'
+    
+    Returns:
+    - float, calculated BMI
+    """
+    if system == 'imperial':
+        bmi = (weight / (height ** 2)) * 703  # Calculate BMI in imperial units
+    else:
+        bmi = weight / (height ** 2)  # Calculate BMI in metric units
+    
+    return bmi
+
+def bmi_category(bmi):
+    """
+    Determine BMI category based on BMI value.
+    
+    Parameters:
+    - bmi: float, BMI value
+    
+    Returns:
+    - str, BMI category
+    """
+    if bmi < 18.5:
+        return "Underweight"
+    elif bmi < 25:
+        return "Normal weight"
+    elif bmi < 30:
+        return "Overweight"
+    else:
+        return "Obese"
+
+def main():
+    print("Welcome to the BMI Calculator!")
+    print("Please choose the measurement system:")
+    print("1. Metric (kilograms, meters)")
+    print("2. Imperial (pounds, inches)")
+    
+    system_choice = input("Enter your choice (1/2): ")
+    
+    if system_choice == '1':
+        weight = float(input("Enter your weight in kilograms: "))
+        height = float(input("Enter your height in meters: "))
+        bmi = calculate_bmi(weight, height, system='metric')
+    elif system_choice == '2':
+        weight = float(input("Enter your weight in pounds: "))
+        height = float(input("Enter your height in inches: "))
+        bmi = calculate_bmi(weight, height, system='imperial')
+    else:
+        print("Invalid choice. Please enter 1 or 2.")
+        return
+    
+    bmi_cat = bmi_category(bmi)
+    
+    print(f"Your BMI is: {bmi:.2f}")
+    print(f"You are in the '{bmi_cat}' category.")
+
+if __name__ == "__main__":
+    main()
