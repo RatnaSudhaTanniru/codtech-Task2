@@ -2,7 +2,7 @@ Name:RatnaSudha Tanniru
 Company:CODTECH IT SOLUTIONS
 ID:CTO8DS38O7
 Domain:MACHINE LEARNING
-Duration:June to July 2024
+Duration:July to August 2024
 Mentor:N.Santhosh Kumar
 
 Overview of the project
